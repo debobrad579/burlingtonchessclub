@@ -7,11 +7,12 @@
 }
 
 :root {
-  --slate-50: oklch(98.4% 0.003 247.858);
-  --slate-400: oklch(70.4% 0.04 256.788);
-  --slate-800: oklch(27.9% 0.041 260.031);
-  --slate-950: oklch(12.9% 0.042 264.695);
-  --blue-500: oklch(62.3% 0.214 259.815);
+  --background: oklch(97.9% 0.021 166.113);
+  --navbar-background: oklch(15.3% 0.006 107.1);
+  --navbar-foreground: oklch(98.8% 0.003 106.5);
+  --navbar-foreground-muted: oklch(73.7% 0.021 106.9);
+  --foreground: oklch(12.9% 0.042 264.695);
+  --links: oklch(62.3% 0.214 259.815);
   --side-margin: 10%;
 }
 
@@ -22,13 +23,13 @@ body {
 
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  background-color: var(--slate-50);
-  color: var(--slate-950);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 a {
   text-decoration: none;
-  color: var(--blue-500);
+  color: var(--links);
 }
 
 a:hover {
@@ -56,16 +57,16 @@ ol {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem var(--side-margin);
-  background-color: var(--slate-800);
+  background-color: var(--navbar-background);
 }
 
 .navbar a {
-  color: var(--slate-400);
+  color: var(--navbar-foreground-muted);
   transition: color 400ms;
 }
 
 .navbar a:hover {
-  color: var(--slate-50);
+  color: var(--navbar-foreground);
   text-decoration: none;
 }
 
@@ -128,8 +129,8 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: var(--slate-800);
-  color: var(--slate-50);
+  background-color: var(--navbar-background);
+  color: var(--navbar-foreground);
   text-align: center;
   padding: 1rem;
 }
@@ -137,7 +138,7 @@ ol {
 .footer .copyright {
   padding-top: 0.5rem;
   font-size: 0.9rem;
-  color: var(--slate-400);
+  color: var(--navbar-foreground-muted);
 }
 
 .footer a {
