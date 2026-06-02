@@ -1,7 +1,9 @@
-*, ::before, ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -13,12 +15,13 @@
   --side-margin: 10%;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: var(--slate-50);
   color: var(--slate-950);
 }
@@ -32,14 +35,19 @@ a:hover {
   text-decoration: underline;
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 2rem;
 }
 
+.logo {
+  width: 8rem;
+}
+
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .navbar {
@@ -147,4 +155,3 @@ ul, ol {
     --side-margin: 2rem;
   }
 }
-
