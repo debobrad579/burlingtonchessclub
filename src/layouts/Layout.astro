@@ -1,0 +1,233 @@
+---
+import Logo from "../assets/logo.svg";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Burlington Chess Club</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<nav class="navbar">
+				<a class="logo" href="/"><Logo width="300" /></a>
+				<ul class="navlinks">
+					<li><a href="about">About</a></li>
+					<li>
+						<a href="#" target="_blank">Schedules</a>
+					</li>
+					<li>
+						<a
+							href="https://drive.google.com/drive/folders/19EPuLfbxI_wqjug21O6QQSqoWedaBcXg?usp=drive_link"
+							target="_blank"
+						>
+							Newsletters
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<main class="content">
+				<slot />
+			</main>
+			<footer class="footer">
+				<p><strong>Burlington Chess Club</strong></p>
+				<p>Tuesdays &middot; 7:15 PM &ndash; 10:30 PM&nbsp;(&sim;)</p>
+				<div>
+					<a
+						target="_blank"
+						href="https://www.google.com/maps/place/Wellington+Square+United+Church/@43.3311781,-79.7974956,120m/data=!3m1!1e3!4m6!3m5!1s0x882c9e2611e3b0ff:0xeedabac47797a553!8m2!3d43.3311045!4d-79.7970849!16s%2Fg%2F1tl4dp3t?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D"
+					>
+						Wellington Square United Church 2121 Caroline St,
+						Burlington, ON
+					</a>
+				</div>
+				<p>
+					Contact: George Stajov &ndash;{" "}
+					<a href="mailto:burlingtonchess@gmail.com"
+						>burlingtonchess@gmail.com</a
+					>
+				</p>
+				<p>
+					Affiliated with the{" "}
+					<a href="https://www.chess.ca/" target="_blank"
+						>Chess Federation of Canada</a
+					>
+				</p>
+				<p class="copyright">
+					&copy; 2025 Burlington Chess Club. All rights reserved.
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	*,
+	::before,
+	::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	:root {
+		--background: oklch(97.9% 0.021 166.113);
+		--navbar-background: oklch(15.3% 0.006 107.1);
+		--navbar-foreground: oklch(98.8% 0.003 106.5);
+		--navbar-foreground-muted: oklch(73.7% 0.021 106.9);
+		--foreground: oklch(12.9% 0.042 264.695);
+		--links: oklch(62.3% 0.214 259.815);
+		--side-margin: 10%;
+	}
+
+	html,
+	body {
+		height: 100%;
+	}
+
+	body {
+		font-family: "Inter", Arial, Helvetica, sans-serif;
+		background-color: var(--background);
+		color: var(--foreground);
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--links);
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	ul,
+	ol {
+		padding-left: 2rem;
+	}
+
+	.logo {
+		width: 8rem;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem var(--side-margin);
+		background-color: var(--navbar-background);
+	}
+
+	.navbar a {
+		color: var(--navbar-foreground-muted);
+		transition: color 400ms;
+	}
+
+	.navbar a:hover {
+		color: var(--navbar-foreground);
+		text-decoration: none;
+	}
+
+	.navlinks {
+		padding: 0;
+		list-style: none;
+		display: flex;
+		gap: 1rem;
+	}
+
+	@media (max-width: 32rem) {
+		.navbar {
+			flex-direction: column;
+		}
+	}
+
+	.content {
+		padding: 2rem var(--side-margin);
+		flex-grow: 1;
+	}
+
+	.column-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.tournaments-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	@media (max-width: 50rem) {
+		.column-container {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+
+	.membership-list {
+		list-style: none;
+	}
+
+	.title {
+		padding-bottom: 1rem;
+	}
+
+	.subtitle {
+		padding-bottom: 0.5rem;
+	}
+
+	.footer {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		background-color: var(--navbar-background);
+		color: var(--navbar-foreground);
+		text-align: center;
+		padding: 1rem;
+	}
+
+	.footer .copyright {
+		padding-top: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--navbar-foreground-muted);
+	}
+
+	.footer a {
+		color: inherit;
+	}
+
+	@media (max-width: 64rem) {
+		:root {
+			--side-margin: 5%;
+		}
+	}
+
+	@media (max-width: 40rem) {
+		:root {
+			--side-margin: 2rem;
+		}
+	}
+</style>
