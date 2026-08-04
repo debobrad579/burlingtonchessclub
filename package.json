@@ -15,6 +15,11 @@
     "astro": "^7.1.6"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
+    "csv-parser": "^3.2.1",
+    "node": "^26.5.1",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
     "wrangler": "^4.118.0"
   }
 }

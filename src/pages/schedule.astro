@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+import fs from "fs"
+import csvParser from "csv-parser"
+
+type RowData = {
+	Date: string
+	Tournament: string
+	Time: string
+	Rounds: string
+}
+
+const tournaments = await new Promise<RowData[]>((resolve, reject) => {
+	const rows: RowData[] = []
+
+	fs.createReadStream("tournaments.csv")
+		.pipe(csvParser({ separator: "|" }))
+		.on("data", (row: RowData) => {
+			rows.push(row)
+		})
+		.on("end", () => resolve(rows))
+		.on("error", reject)
+})
+---
+
+<Layout>
+	<table>
+		<thead>
+			<tr>
+				<th>Tournament</th>
+				<th>Date</th>
+				<th>Time Control</th>
+				<th>Rounds</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				tournaments.map((tournament) => (
+					<tr>
+						<td>{tournament.Tournament}</td>
+						<td>{tournament.Date}</td>
+						<td>{tournament.Time}</td>
+						<td>{tournament.Rounds}</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+</Layout>
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		padding: 12px;
+		border: 1px solid oklch(88% 0.011 106.6);
+		text-align: left;
+	}
+
+	th {
+		background-color: oklch(15.3% 0.006 107.1);
+		color: oklch(98.8% 0.003 106.5);
+	}
+
+	tr:nth-child(odd) {
+		background-color: oklch(98.8% 0.003 106.5);
+	}
+
+	tr:hover {
+		background-color: oklch(96.6% 0.005 106.5);
+	}
+</style>
