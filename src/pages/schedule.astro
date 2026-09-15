@@ -47,6 +47,9 @@ const tournaments = await new Promise<RowData[]>((resolve, reject) => {
 			}
 		</tbody>
 	</table>
+	<div class="past-link">
+		<a href="/past-tournaments">Past Tournaments</a>
+	</div>
 </Layout>
 
 <style>
@@ -73,5 +76,11 @@ const tournaments = await new Promise<RowData[]>((resolve, reject) => {
 
 	tr:hover {
 		background-color: oklch(96.6% 0.005 106.5);
+	}
+
+	.past-link {
+		display: flex;
+		justify-content: center;
+		padding-top: 16px;
 	}
 </style>
