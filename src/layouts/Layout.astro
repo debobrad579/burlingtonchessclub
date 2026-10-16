@@ -82,11 +82,26 @@ import Logo from "../assets/logo.svg"
 
 	:root {
 		--background: oklch(97.9% 0.021 166.113);
-		--navbar-background: oklch(15.3% 0.006 107.1);
-		--navbar-foreground: oklch(98.8% 0.003 106.5);
-		--navbar-foreground-muted: oklch(73.7% 0.021 106.9);
 		--foreground: oklch(12.9% 0.042 264.695);
-		--links: oklch(62.3% 0.214 259.815);
+	}
+
+	a {
+		text-decoration: none;
+		color: oklch(62.3% 0.214 259.815);
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	ul,
+	ol {
+		padding-left: 2rem;
+	}
+</style>
+
+<style>
+	:root {
 		--side-margin: 10%;
 	}
 
@@ -99,20 +114,6 @@ import Logo from "../assets/logo.svg"
 		font-family: "Inter", Arial, Helvetica, sans-serif;
 		background-color: var(--background);
 		color: var(--foreground);
-	}
-
-	a {
-		text-decoration: none;
-		color: var(--links);
-	}
-
-	a:hover {
-		text-decoration: underline;
-	}
-
-	ul,
-	ol {
-		padding-left: 2rem;
 	}
 
 	.logo {
@@ -131,16 +132,25 @@ import Logo from "../assets/logo.svg"
 		align-items: center;
 		gap: 0.5rem;
 		padding: 1rem var(--side-margin);
-		background-color: var(--navbar-background);
+
+		background-color: white;
+		border-bottom: 1px solid #d1e5d8;
+		box-shadow: 0 2px 5px oklch(20% 0.02 260 / 0.06);
 	}
 
 	.navbar a {
-		color: var(--navbar-foreground-muted);
-		transition: color 400ms;
+		display: inline-block;
+		color: #475569;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.5rem;
+		transition:
+			color 200ms ease,
+			background-color 200ms ease;
 	}
 
 	.navbar a:hover {
-		color: var(--navbar-foreground);
+		color: #14532d;
+		background-color: #f0fdf4;
 		text-decoration: none;
 	}
 
@@ -162,51 +172,22 @@ import Logo from "../assets/logo.svg"
 		flex-grow: 1;
 	}
 
-	.column-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-	}
-
-	.column {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	@media (max-width: 50rem) {
-		.column-container {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-	}
-
-	.membership-list {
-		list-style: none;
-	}
-
-	.title {
-		padding-bottom: 1rem;
-	}
-
-	.subtitle {
-		padding-bottom: 0.5rem;
-	}
-
 	.footer {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 0.5rem;
-		background-color: var(--navbar-background);
-		color: var(--navbar-foreground);
-		text-align: center;
-		padding: 1rem;
+		background-color: #e5f4e9;
+		color: #14532d;
+		border-top: 1px solid #c5dfcd;
+		padding: 1rem var(--side-margin);
 	}
 
 	.footer .copyright {
-		padding-top: 0.5rem;
-		font-size: 0.9rem;
-		color: var(--navbar-foreground-muted);
+		padding-top: 1rem;
+		border-top: 1px solid #c5dfcd;
+		font-size: 0.875rem;
+		color: #64748b;
 	}
 
 	.footer a {

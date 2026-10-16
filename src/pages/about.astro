@@ -46,7 +46,7 @@ import Layout from "../layouts/Layout.astro"
 				</p>
 			</section>
 			<section>
-				<h2>Annual Membership</h2>
+				<h2 class="subtitle">Annual Membership</h2>
 				<p>
 					The annual membership covers all of the 5 round classical
 					tournaments, as well as the rapid and blitz events held
@@ -126,3 +126,42 @@ import Layout from "../layouts/Layout.astro"
 		</div>
 	</div>
 </Layout>
+
+<style>
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	.column-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	@media (max-width: 50rem) {
+		.column-container {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+
+	.membership-list {
+		list-style: none;
+	}
+
+	.title {
+		padding-bottom: 1rem;
+	}
+
+	.subtitle {
+		padding-bottom: 0.5rem;
+	}
+</style>
