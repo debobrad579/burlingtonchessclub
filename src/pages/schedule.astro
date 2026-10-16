@@ -48,6 +48,13 @@ const tournaments = await new Promise<RowData[]>((resolve, reject) => {
 		</tbody>
 	</table>
 	<div class="past-link">
+		<a
+			target="_blank"
+			href="https://drive.google.com/drive/folders/1-4Jdu-iuqkpgTsF0Yij9B7QAJAaJOqtn"
+		>
+			Standings & Pairings
+		</a>
+		<span>|</span>
 		<a href="/past-tournaments">Past Tournaments</a>
 	</div>
 </Layout>
@@ -80,6 +87,7 @@ const tournaments = await new Promise<RowData[]>((resolve, reject) => {
 
 	.past-link {
 		display: flex;
+		gap: 1rem;
 		justify-content: center;
 		padding-top: 16px;
 	}
